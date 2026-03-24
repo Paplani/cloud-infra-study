@@ -88,7 +88,7 @@ http://<public-ip>
 
 ### SSH 접속 성공
 
-![ssh](images/ssh-success.png)
+![ssh](../images/ssh-success.png)
 
 - EC2 인스턴스에 정상적으로 접속
 
@@ -96,7 +96,7 @@ http://<public-ip>
 
 ### nginx 실행 상태
 
-![nginx-status](images/nginx-status.png)
+![nginx-status](../images/nginx-status.png)
 
 - nginx 서비스 active (running) 상태 확인
 
@@ -104,7 +104,7 @@ http://<public-ip>
 
 ### 웹 접속 성공
 
-![nginx-web](images/nginx-web-page.png)
+![nginx-web](../images/nginx-web-page.png)
 
 - 퍼블릭 IP를 통해 nginx 페이지 정상 출력
 
