@@ -88,3 +88,26 @@ GitHub에서 파일 경로를 활용하면 폴더와 파일을 함께 만들 수
 - 접속 문제는 서버와 네트워크를 구분해서 봐야 한다  
 - 문제를 순서대로 확인하면서 해결하는 방식이 중요하다고 느꼈다
 
+## 2026-03-26
+
+### Level 5
+
+- VPC 내부에 Private Subnet 생성  
+- NAT Gateway를 통해 Private Subnet의 인터넷 연결 구성  
+- Route Table 설정을 통해 Private → NAT → Internet 흐름 구성  
+
+- Private EC2 생성 (Public IP 없음)  
+  → 외부에서 직접 접속 불가 확인  
+
+- Bastion Host 구조 구현  
+  → Public EC2를 통해 Private EC2 접속 성공  
+
+- SSH 키 전달 과정 이해 (scp 사용)  
+- EC2 내부 vs 로컬 환경 차이 이해  
+
+### 느낀 점
+
+- AWS에서는 서버보다 네트워크 구조가 더 중요하다고 느꼈다  
+- Private / Public 분리를 통해 보안 구조를 직접 이해할 수 있었다  
+- 접속 문제는 네트워크, 인증, 실행 위치를 나눠서 봐야 한다  
+
