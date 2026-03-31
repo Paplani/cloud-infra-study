@@ -92,7 +92,7 @@ Launch Template을 기반으로 새로운 인스턴스를 생성한다는 점을
 
 ### 📸 Launch Template 생성 화면  
 
-![launch-template](./images/launch-template.png)
+![launch-template](./images/auto-scaling-setup/launch-template.png)
 
 ---
 
@@ -113,11 +113,11 @@ Target Group 단위로 트래픽을 전달한다는 점을 이해했다.
 
 ### 📸 Subnet 및 Target Group 연결 화면  
 
-![asg-subnet](./images/asg-subnet.png)
+![asg-subnet](./images/auto-scaling-setup/asg-subnet.png)
 
 ### 📸 Min / Desired / Max 설정 화면  
 
-![asg-capacity](./images/asg-capacity.png)
+![asg-capacity](./images/auto-scaling-setup/asg-capacity.png)
 
 ---
 
@@ -134,11 +134,11 @@ Target Group에 자동으로 등록된다는 점을 확인하였다.
 
 ### 📸 EC2 인스턴스 생성 화면  
 
-![ec2-created](./images/ec2-created.png)
+![ec2-created](./images/auto-scaling-setup/ec2-created.png)
 
 ### 📸 Target Group healthy 상태  
 
-![target-group](./images/target-group.png)
+![target-group](./images/auto-scaling-setup/target-group.png)
 
 ---
 
