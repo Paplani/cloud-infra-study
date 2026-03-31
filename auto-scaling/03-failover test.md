@@ -65,7 +65,7 @@ Auto Scaling은 인스턴스를 보호하는 것이 아니라
 
 ### 📸 인스턴스 Terminate 실행 화면  
 
-![terminate](./images/failover test/terminate.png)
+![terminate](./images/failover_test/terminate.png)
 
 ---
 
@@ -76,7 +76,7 @@ Auto Scaling은 인스턴스를 보호하는 것이 아니라
 
 ### 📸 Activity 로그  
 
-![activity](./images/failover test/activity.png)
+![activity](./images/failover_test/activity.png)
 
 ---
 
@@ -86,7 +86,7 @@ Auto Scaling은 인스턴스를 보호하는 것이 아니라
 
 ### 📸 Target Group 상태 변화  
 
-![target-group-status](./images/failover test/target-group-status.png)
+![target-group-status](./images/failover_test/target-group-status.png)
 
 ---
 
