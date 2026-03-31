@@ -72,7 +72,12 @@ AWS, Linux 기반 인프라를 직접 구축하고 운영하며 학습하는 저
 - [EC2 + nginx](docs/01-ec2-nginx.md)
 - [File Permission](docs/02-file-permission.md)
 - [EC2 Rebuild](docs/03-ec2-rebuild.md)
-
+- [Port & curl Lab](docs/04-port-curl-lab.md)
+- [HTTP / HTTPS](docs/05-http-https.md)
+- [HTTPS Setup Lab](docs/06-https-setup-lab.md)
+- [VPC / Subnet Lab](docs/07-vpc-subnet-lab.md)
+- [Private Subnet & NAT Lab](docs/08-private-subnet-nat-lab.md)
+- [ALB Lab](docs/09-alb-lab.md)
 ---
 
 ### Auto Scaling
