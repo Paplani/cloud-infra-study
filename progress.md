@@ -131,6 +131,34 @@ GitHub에서 파일 경로를 활용하면 폴더와 파일을 함께 만들 수
 - 서버 1대의 nginx를 중지하여 장애 상황 테스트
   → Target Group에서 unhealthy 상태 확인
   → ALB가 정상 서버(server-2)로만 요청 전달하는 것 확인
+  
+## 2026-03-31
+
+### Level 7 ~ 8
+
+- Launch Template을 생성하여 EC2 인스턴스 자동 생성 기준 구성
+- Auto Scaling Group을 생성하고 Min / Desired / Max 값을 설정하여 기본 인스턴스 수 유지 구조 구성
+- ALB의 Target Group과 Auto Scaling Group을 연결하여 트래픽 분산 구조 완성
+
+- CPU 부하를 발생시키기 위해 stress 명령어 실행
+  → 인스턴스 수가 증가하는 Scale Out 동작 확인
+- 부하 종료 후 인스턴스 수가 감소하는 Scale In 동작 확인
+
+- EC2 인스턴스를 강제로 종료하여 장애 상황 테스트
+  → Auto Scaling Group이 새로운 인스턴스를 자동으로 생성하는 것 확인
+  → Target Group에 자동 등록 및 healthy 상태로 전환 확인
+
+- CloudWatch를 통해 EC2 CPU 사용률 확인
+- Auto Scaling Metrics를 활성화하여 인스턴스 수 변화 지표 확인
+- Metrics 활성화 이전 데이터는 표시되지 않는 것을 확인
+- CloudWatch 지표는 실시간이 아닌 일정 시간 지연 후 반영되는 것 확인
+
+### 느낀 점
+
+- Auto Scaling은 단순히 인스턴스를 늘리는 기능이 아니라 장애 복구까지 포함된 구조라는 것을 이해했다
+- Scale Out은 개별 인스턴스가 아닌 전체 평균 CPU를 기준으로 동작한다는 점이 인상적이었다
+- CloudWatch는 단순 모니터링 도구가 아니라 Auto Scaling의 동작 기준이 되는 핵심 요소라는 것을 이해했다
+- 실제로 부하를 발생시키고 장애를 만들어보면서 인프라 구조를 더 깊게 이해할 수 있었다
 
 - 서버 복구 후 다시 healthy 상태로 전환되는 것 확인
 
