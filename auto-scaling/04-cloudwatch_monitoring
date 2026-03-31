@@ -1,0 +1,164 @@
+# CloudWatch Monitoring
+
+---
+
+## 1. 실습 목적  
+
+CloudWatch를 통해 EC2 및 Auto Scaling Group의 동작을 모니터링하고,  
+Auto Scaling이 어떤 기준으로 동작하는지 이해한다.  
+
+또한 지표 기반으로 시스템 상태를 파악하는 방법을 학습한다.
+
+---
+
+## 2. 실습 환경  
+
+- AWS CloudWatch  
+- Auto Scaling Group  
+- EC2  
+- Application Load Balancer  
+
+---
+
+## 3. 실습 목표  
+
+- EC2 CPU 사용률 확인  
+- Auto Scaling Group Metrics 활성화  
+- 인스턴스 수 변화 확인  
+- Auto Scaling과 CloudWatch의 관계 이해  
+
+---
+
+## 4. 핵심 개념  
+
+- **CloudWatch Metrics**  
+  AWS 리소스의 상태를 수치 데이터로 수집하는 서비스  
+
+- **Monitoring**  
+  시스템 상태를 지속적으로 관찰하고 이상 여부를 판단하는 과정  
+
+- **Auto Scaling 연동**  
+  CloudWatch 지표를 기반으로 Auto Scaling이 동작  
+
+---
+
+## 5. 전체 구조 (계층 구조)  
+
+```
+EC2 (CPU 사용률 발생)
+   ↓
+CloudWatch (지표 수집 및 저장)
+   ↓
+Auto Scaling Group (지표 기반 동작)
+```
+
+---
+
+## 6. 작업 과정  
+
+### 6-1. CloudWatch 접속  
+
+AWS 콘솔에서 CloudWatch에 접속하여 Metrics 메뉴로 이동하였다.  
+
+이 과정에서  
+CloudWatch는 AWS 서비스별로 Metrics를 분리하여 관리한다는 점을 확인했다.
+
+---
+
+### 6-2. EC2 CPU 사용률 확인  
+
+CloudWatch → Metrics → EC2 → Per-Instance Metrics 경로로 이동하여  
+CPUUtilization 지표를 확인하였다.  
+
+이 과정에서  
+각 EC2 인스턴스별 CPU 사용률을 개별적으로 확인할 수 있다는 점을 이해했다.  
+
+---
+
+### 6-3. Auto Scaling Metrics 활성화  
+
+EC2 → Auto Scaling Group → Monitoring 탭에서  
+Metrics collection을 활성화하였다.  
+
+이 과정에서  
+Auto Scaling 관련 지표는 기본적으로 비활성화되어 있으며  
+사용자가 직접 활성화해야 한다는 점을 확인했다.  
+
+---
+
+### 6-4. Auto Scaling Metrics 확인  
+
+CloudWatch → Metrics → Auto Scaling → Group Metrics 경로로 이동하여  
+다음 항목을 확인하였다.  
+
+- GroupDesiredCapacity  
+- GroupInServiceInstances  
+- GroupTotalInstances  
+
+이 과정에서  
+Auto Scaling은 인스턴스 개수 변화를 지표로 확인할 수 있다는 점을 이해했다.  
+
+---
+
+### 6-5. 동작 확인 과정에서의 특징  
+
+Auto Scaling Group Metrics 활성화 이후  
+이전 데이터는 표시되지 않는 것을 확인하였다.  
+
+또한 CPU 부하를 발생시켜도  
+즉시 변화가 나타나지 않고 일정 시간 이후 반영되는 것을 확인하였다.  
+
+---
+
+## 7. 확인 결과  
+
+- EC2 CPU 사용률을 CloudWatch에서 확인 가능  
+- Auto Scaling Metrics 활성화 이후 데이터 수집 시작  
+- 인스턴스 수 변화는 지연 후 반영됨  
+
+---
+
+## 8. 운영 관점  
+
+CloudWatch는 시스템 상태를 실시간으로 확인하는 도구가 아니라  
+지표 기반으로 일정 시간 단위의 상태를 분석하는 도구이다.  
+
+이를 통해 트래픽 변화, 장애 발생, 확장 여부 등을 판단할 수 있다.
+
+---
+
+## 9. 발생 가능한 문제  
+
+1. Metrics 비활성화로 데이터 미표시  
+2. 데이터 반영 지연으로 즉시 확인 불가  
+3. 시간 범위 설정 오류로 그래프 미표시  
+
+---
+
+## 10. 트러블슈팅  
+
+- Auto Scaling Metrics가 보이지 않음  
+→ Monitoring 탭에서 Metrics 활성화  
+
+- No data 표시 발생  
+→ Metrics 활성화 이후부터 데이터 수집됨 확인  
+
+- 변화가 보이지 않음  
+→ CloudWatch는 일정 시간 지연 후 반영됨 확인  
+
+---
+
+## 11. 배운 점  
+
+CloudWatch는 단순히 데이터를 보여주는 도구가 아니라  
+Auto Scaling과 같은 서비스가 동작하는 기준이 되는 핵심 요소라는 점을 이해했다.  
+
+또한 실시간 반응이 아닌  
+지표 기반의 지연된 반응 구조라는 점을 확인하였다.
+
+---
+
+## 12. 다음 단계  
+
+- 전체 인프라를 하나의 프로젝트 형태로 정리  
+- 3-Tier 아키텍처 구성으로 확장  
