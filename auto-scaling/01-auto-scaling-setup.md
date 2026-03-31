@@ -132,10 +132,6 @@ Auto Scaling Group 생성 후 EC2 인스턴스가 자동으로 생성되는 것�
 Auto Scaling Group은 인스턴스를 생성할 뿐만 아니라  
 Target Group에 자동으로 등록된다는 점을 확인하였다.  
 
-### 📸 EC2 인스턴스 생성 화면  
-
-![ec2-created](./images/auto-scaling-setup/ec2-created.png)
-
 ### 📸 Target Group healthy 상태  
 
 ![target-group](./images/auto-scaling-setup/target-group.png)
