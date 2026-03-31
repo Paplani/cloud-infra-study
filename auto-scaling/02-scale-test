@@ -82,7 +82,7 @@ Auto Scaling은 단일 인스턴스의 CPU가 아닌
 
 ### 📸 EC2 인스턴스 증가 화면  
 
-![scale-out](./images/scale-out.png)
+![scale-out](./images/scale-test/scale-out.png)
 
 ---
 
@@ -99,7 +99,7 @@ pkill stress
 
 ### 📸 EC2 인스턴스 감소 화면  
 
-![scale-in](./images/scale-in.png)
+![scale-in](./images/scale-test/scale-in.png)
 
 ---
 
